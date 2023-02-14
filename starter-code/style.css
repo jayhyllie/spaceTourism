@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@200;300;400;600;700;800;900&family=Bellefair&display=swap');
+
+:root {
+    --bg-dark: #0B0D17;
+    --text-secondary: #D0D6F9;
+    --text-primary: #ffffff;
+
+    --fs-900: 9.375rem;
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+    --fs-200: 0.825rem;
+
+    --ff-belle: 'Bellefair', sans-serif;
+    --ff-barlow: 'Barlow', sans-serif;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: var(--ff-barlow);
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-image: url('/starter-code/assets/home/background-home-mobile.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  overflow-x: hidden;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--ff-belle);
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+h5 {
+    font-family: var(--ff-barlow);
+    font-size: var(--fs-200);
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    font-weight: 400;
+    letter-spacing: 4.725px;
+    line-height: 34px;
+    font-style: normal;
+}
+h1 {
+    font-size: var(--fs-800);
+    font-weight: 100;
+}
+p {
+    color: var(--text-secondary);
+    font-weight: 400;
+    line-height: 25px;
+    font-size: var(--fs-300);
+}
+.button {
+    width: clamp(9.375rem, 20vw, 20rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    margin: 0 auto;
+    font-family: var(--ff-belle);
+    font-size: var(--fs-400);
+    text-transform: uppercase;
+}
+
+
+/* HEADER */
+
+.sr-only {
+    visibility: hidden;
+}
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+.grid {
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+/* primary navigation */
+.logo {
+    margin: 2rem;
+}
+.mobile-nav-toggle {
+    display: none;
+}
+.primary__header {
+    justify-content: space-between;
+    align-items: center;
+}
+.primary__nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    background: hsl(0 0% 0% / 0.5);
+}
+
+@supports (backdrop-filter: blur(1rem)) {
+    .primary__nav {
+        background: hsl(0 0% 100% / 0.1);
+        backdrop-filter: blur(1rem);
+    }
+}
+
+.primary__nav a {
+    text-decoration: none;
+    color: var(--text-primary);
+}
+.primary__nav a > [aria-hidden='true'] {
+    font-weight: 700;
+    margin-inline-end: .75em;
+}
+
+/* HOME */
+
+.main {
+    padding: 2em;
+    text-align: center;
+}
+.home {
+    --gap: clamp(3rem, 10vh, 10rem);
+    place-content: center;
+}
+
+/* MQ */
+@media (max-width: 35em) {
+    .primary__nav {
+        --gap: 2em;
+
+        position: fixed;
+        z-index: 1000;
+        inset: 0 0 0 30%;
+
+        flex-direction: column;
+        padding: min(30vh, 10rem) 2rem;
+
+        transform: translateX(100%);
+        transition: transform 500ms ease-in-out;
+    }
+
+    .primary__nav[data-visible='true'] {
+        transform: translateX(0%);
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        z-index: 9999;
+        width: 2rem;
+        border: 0;
+        aspect-ratio: 1;
+        top: 2rem;
+        right: 2rem;
+        background-color: transparent;
+        background-image: url('/starter-code/assets/shared/icon-hamburger.svg');
+        background-repeat: no-repeat;
+    }
+    .mobile-nav-toggle[aria-expanded='true'] {
+        background-image: url('/starter-code/assets/shared/icon-close.svg');
+        background-repeat: no-repeat;
+    }
+}
+
+@media (min-width: 35em) and (max-width: 55em) {
+    .primary__nav a > span[aria-hidden] {
+        display: none;
+    }
+}
+
+@media (min-width: 35em) {
+    .primary__nav {
+        --gap: clamp(1.5rem, 5vw, 3rem);
+        padding-block: 2rem;
+        padding-inline: clamp(3rem, 10vw, 10rem)
+    }
+}
+@media (min-width: 55em) {
+    .home {
+        min-height: 100vh;
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+        padding-inline-start: 8em;
+    }
+    .button {
+        margin: auto;
+    }
+}
+
+
+
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
