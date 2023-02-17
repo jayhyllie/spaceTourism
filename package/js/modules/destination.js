@@ -8,7 +8,7 @@ function createPlanet(e, destinations) {
     let clickedLi = e.target;
     let clickedTitle = clickedLi.textContent;
     const clickedBody = destinations.find(body => body.name.toLowerCase() === clickedTitle.toLowerCase());
-
+    
     planetImage.setAttribute('src', clickedBody.images.webp);
     planetName.innerHTML = clickedBody.name;
     planetInfo.innerHTML = clickedBody.description;
@@ -16,7 +16,7 @@ function createPlanet(e, destinations) {
     planetTravel.innerHTML = clickedBody.travel;
 }
 
-export { createPlanet }
+export { createPlanet };
 
 
 
