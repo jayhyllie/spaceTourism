@@ -158,6 +158,10 @@ p {
     line-height: 25px;
     font-size: var(--fs-300);
 }
+a {
+    text-decoration: none;
+    color: black;
+}
 .button {
     width: clamp(9.375rem, 20vw, 20rem);
     aspect-ratio: 1;
@@ -292,6 +296,80 @@ h4.main__section--subHead span {
     gap: .75rem;
 }
 
+/* CREW */
+
+main.crew {
+    text-align: center;
+    justify-content: center;
+}
+main.crew .main__section--imageBox {
+    width: 100%;
+    border-bottom: 1px solid rgba(56, 59, 75, 1);
+}
+main.crew #crew--image {
+    max-height: 270px;
+    object-fit: contain;
+    margin: 1.5rem auto 0;
+}
+.crew.grid ul {
+    justify-content: center;
+}
+.crew.grid li {
+    width: 15px;
+    height: 15px;
+    border: 1px solid var(--text-primary);
+    border-radius: 50%;
+}
+.crew.grid li.active {
+    background-color: var(--text-primary);
+}
+.crew.grid h4 {
+    font-size: var(--fs-400);
+    opacity: .5;
+    letter-spacing: 1px;
+}
+.crew.grid h3 {
+    font-size: clamp(1rem, 1.7rem, 2rem)
+}
+
+/* TECH */
+main.tech {
+    text-align: center;
+    justify-content: center;
+}
+main.tech .main__section--imageBox {
+    width: 100%;
+}
+main.tech #tech--image {
+    max-height: 270px;
+    object-fit: contain;
+    margin: 1.5rem auto 0;
+}
+.tech.grid ul {
+    justify-content: center;
+}
+.tech.grid li {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-content: center;
+    border: 1px solid var(--text-primary);
+    border-radius: 50%;
+    font-size: var(--fs-400);
+    color: var(--text-primary)
+}
+.tech.grid li.active {
+    background-color: var(--text-primary);
+    color: black;
+}
+.tech.grid h4 {
+    font-size: var(--fs-400);
+    opacity: .5;
+    letter-spacing: 1px;
+}
+.tech.grid h3 {
+    font-size: clamp(1rem, 1.7rem, 2rem)
+}
 /* MQ */
 @media (max-width: 35em) {
     .primary__nav {
@@ -351,7 +429,7 @@ h4.main__section--subHead span {
         text-align: left;
         padding-inline-start: 8em;
     }
-    main.destination {
+    main {
         margin-top: 10vh;
     }
     .main__section--subHead {
@@ -366,6 +444,26 @@ h4.main__section--subHead span {
     }
     .main__section--image {
         width: 27.8rem !important;
+        max-height: 100% !important;
+    }
+    .crew .main__section--imageBox {
+        border: none !important;
+    }
+    .crew.grid > * {
+        align-items: start;
+    }
+    .crew h4.crew__title {
+        font-size: var(--fs-600) !important;
+        margin-top: 2em;
+    }
+    .crew h3 {
+        font-size: var(--fs-700) !important;
+        line-height: 1em;
+        margin-top: .5em;
+    }
+    .crew p {
+        padding-right: 8em;
+        margin-top: 4em;
     }
     .button {
         margin: auto;
