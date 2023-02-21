@@ -162,6 +162,9 @@ a {
     text-decoration: none;
     color: black;
 }
+li {
+    cursor: pointer;
+}
 .button {
     width: clamp(9.375rem, 20vw, 20rem);
     aspect-ratio: 1;
@@ -438,6 +441,9 @@ main.tech #tech--image {
     .main__section {
         grid-template-columns: repeat(2, 1fr);
         text-align: left;
+    }
+    .main__section.button.big {
+        text-align: center;
     }
     .main__section--list {
         justify-content: flex-start !important;
